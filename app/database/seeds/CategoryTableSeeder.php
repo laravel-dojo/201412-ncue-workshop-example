@@ -4,6 +4,8 @@ class CategoryTableSeeder extends Seeder {
 
 	public function run()
 	{
+        DB::table('categories')->truncate();
+        
         Category::create([
             'name'       => '生活記事',
             'created_at'  => date('Y-m-d H:i:s'),
