@@ -17,7 +17,7 @@ class CommentTableSeeder extends Seeder {
                 'name'       => $faker->name,
                 'email'      => $faker->email,
                 'content'    => $faker->sentence(20),
-                'post_id'    => rand(1, 50),
+                'post_id'    => rand(1, 2),
                 'created_at' => \Carbon\Carbon::now()->addDays($index),
                 'updated_at' => \Carbon\Carbon::now()->addDays($index),
             ]);

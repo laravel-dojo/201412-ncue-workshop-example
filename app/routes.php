@@ -123,3 +123,21 @@ Route::get('random', function()
     
     dd('done');
 });
+
+Route::get('relationship', function()
+{
+    $post = Post::find(1);
+    
+    echo $post->category->name.'<br>';
+    foreach($post->comments as $comment)
+    {
+        echo $comment->id.': '.$comment->content.'<br>';
+    }
+    
+    echo '<pre>';
+    var_dump($post->category);
+    var_dump($post->comments);
+    echo '</pre>';
+    
+    dd('done');
+});
