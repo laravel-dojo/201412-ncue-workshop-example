@@ -7,15 +7,15 @@ class PostTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$faker = Faker::create();
+		$faker = Faker::create('zh_TW');
         
         DB::table('posts')->truncate();
         
 		foreach(range(1, 50) as $index)
 		{
             Post::create([
-                'title'       => '我的假文章第 ' . $index . ' 篇',
-                'content'     => '假文章內容假文章內容假文章內容假文章內容假文章內容假文章內容假文章內容假文章內容',
+                'title'       => $faker->sentence(10),
+                'content'     => $faker->paragraph(5),
                 'category_id' => rand(1, 4),
                 'created_at'  => \Carbon\Carbon::now()->addDays($index),
                 'updated_at'  => \Carbon\Carbon::now()->addDays($index),
