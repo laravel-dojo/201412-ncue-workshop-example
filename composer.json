@@ -1,9 +1,8 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
-	"license": "MIT",
-	"type": "project",
+    "name": "shengyou/blog-example",
+    "description": "This is a laravel blog example project",
+    "keywords": ["framework", "laravel", "blog"],
+    "license": "proprietary",
 	"require": {
 		"laravel/framework": "4.2.*"
 	},
