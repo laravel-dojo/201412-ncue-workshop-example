@@ -11,14 +11,14 @@ class PostTableSeeder extends Seeder {
         
         DB::table('posts')->truncate();
         
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 50) as $index)
 		{
             Post::create([
                 'title'       => '我的假文章第 ' . $index . ' 篇',
                 'content'     => '假文章內容假文章內容假文章內容假文章內容假文章內容假文章內容假文章內容假文章內容',
-                'category_id' => 1,
-                'created_at'  => date('Y-m-d H:i:s'),
-                'updated_at'  => date('Y-m-d H:i:s'),
+                'category_id' => rand(1, 4),
+                'created_at'  => \Carbon\Carbon::now()->addDays($index),
+                'updated_at'  => \Carbon\Carbon::now()->addDays($index),
             ]);
 		}
 	}

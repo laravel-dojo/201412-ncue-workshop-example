@@ -6,29 +6,16 @@ class CategoryTableSeeder extends Seeder {
 	{
         DB::table('categories')->truncate();
         
-        Category::create([
-            'name'       => '生活記事',
-            'created_at'  => date('Y-m-d H:i:s'),
-            'updated_at'  => date('Y-m-d H:i:s'),
-        ]);
- 
-        Category::create([
-            'name'       => '心情寫真',
-            'created_at'  => date('Y-m-d H:i:s'),
-            'updated_at'  => date('Y-m-d H:i:s'),
-        ]);
- 
-        Category::create([
-            'name'       => '學習成果',
-            'created_at'  => date('Y-m-d H:i:s'),
-            'updated_at'  => date('Y-m-d H:i:s'),
-        ]);
- 
-        Category::create([
-            'name'       => '雜項',
-            'created_at'  => date('Y-m-d H:i:s'),
-            'updated_at'  => date('Y-m-d H:i:s'),
-        ]);
+        $names = ['生活記事', '心情寫真', '學習成果', '雜項'];
+        
+        foreach($names as $index => $name)
+        {
+            Category::create([
+                'name'        => $name,
+                'created_at'  => \Carbon\Carbon::now()->addDays($index),
+                'updated_at'  => \Carbon\Carbon::now()->addDays($index),
+            ]);
+        }
 	}
 
 }
