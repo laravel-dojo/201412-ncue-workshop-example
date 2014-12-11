@@ -6,6 +6,11 @@
 	"require": {
 		"laravel/framework": "4.2.*"
 	},
+    "require-dev": {
+        "way/generators": "2.*",
+        "barryvdh/laravel-ide-helper": "v1.10.0",
+        "fzaninotto/faker": "v1.4.0"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",
