@@ -80,7 +80,7 @@ class CategoriesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-        $editing_category = Category::find($id);
+        $editing_category = Category::findOrFail($id);
         $categories = Category::all();
         
         $data = compact('editing_category', 'categories');
@@ -97,7 +97,7 @@ class CategoriesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
         
         $inputs = Input::all();
         

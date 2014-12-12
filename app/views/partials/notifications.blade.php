@@ -11,3 +11,10 @@
     <strong>成功！</strong> {{ $message }}
 </div>
 @endif
+
+@if ($message = Session::get('error'))
+<div class="alert alert-dismissable alert-danger backend-hud">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>錯誤！</strong> {{ $message }}
+</div>
+@endif

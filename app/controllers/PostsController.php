@@ -60,6 +60,12 @@ class PostsController extends \BaseController {
 	public function show($id)
 	{
         $post = Post::find($id);
+        
+        if (is_null($post))
+        {
+            return Redirect::route('home.index')->with('error', '找不到該文章');
+        }
+        
         $categories = Category::all();
         
         $data = compact('post', 'categories');
@@ -77,6 +83,12 @@ class PostsController extends \BaseController {
 	public function edit($id)
 	{
         $post = Post::find($id);
+        
+        if (is_null($post))
+        {
+            App::abort(404);
+        }
+        
         $categories = Category::all();
         
         $data = compact('post', 'categories');
@@ -93,7 +105,7 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
         
         $inputs = Input::all();
         
