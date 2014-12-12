@@ -5,7 +5,7 @@
         <title>Home</title>
     </head>
     <body>
-        <h1>Home Page</h1>
+        <h1>My name is <?=$name?></h1>
     </body>
 </html>
 

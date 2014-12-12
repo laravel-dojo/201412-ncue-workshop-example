@@ -15,7 +15,8 @@ Route::pattern('id', '[0-9]+');
 
 Route::get('/', function()
 {
-	return View::make('home');
+    $data = ['name' => 'Simon'];
+	return View::make('home', $data);
 });
 
 Route::get('about', function()
