@@ -12,7 +12,7 @@
     
     @if (true)
     <div class="text-right">
-        <a class="btn btn-success" href="{{ url('posts/create') }}">新增文章</a>
+        <a class="btn btn-success" href="{{ route('posts.create') }}">新增文章</a>
     </div>
     @endif
     
@@ -29,7 +29,7 @@
 
     @if (true)
     <div class="text-right">
-        <a class="btn btn-primary" href="{{ url('posts/1/edit') }}">編輯</a>
+        <a class="btn btn-primary" href="{{ route('posts.edit', 1) }}">編輯</a>
         
         {{ Form::open(['url' => 'posts/1', 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
         {{ Form::submit('刪除', ['class' => 'btn btn-danger btn-sm']) }}

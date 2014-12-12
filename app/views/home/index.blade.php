@@ -15,22 +15,22 @@
 
     @if (true)
     <div class="text-right">
-        <a class="btn btn-success" href="{{ url('posts/create') }}">新增文章</a>
+        <a class="btn btn-success" href="{{ route('posts.create') }}">新增文章</a>
     </div>
     @endif
     
     @foreach(range(1, 10) as $post)
     <h2>
-        <a href="{{ url('posts/'.$post) }}">{{{ '文章標題'.$post }}}</a>
+        <a href="{{ route('posts.show', $post) }}">{{{ '文章標題'.$post }}}</a>
     </h2>
     <p class="text-right"><span class="glyphicon glyphicon-time"></span> 發表於 August 28, 2013 at 10:00 PM</p>
     <hr>
     <p>{{{ '文章內容'.$post }}}</p>
     
     <div class="text-right">
-        <a class="btn btn-info" href="{{ url('posts/'.$post) }}">閱讀全文</a>
+        <a class="btn btn-info" href="{{ route('posts.show', $post) }}">閱讀全文</a>
         @if (true)
-        <a class="btn btn-primary" href="{{ url('posts/'.$post.'/edit') }}">編輯</a>
+        <a class="btn btn-primary" href="{{ route('posts.edit', $post) }}">編輯</a>
         {{ Form::open(['url' => 'posts/'.$post, 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
         {{ Form::submit('刪除', ['class' => 'btn btn-danger btn-sm']) }}
         {{ Form::close() }}

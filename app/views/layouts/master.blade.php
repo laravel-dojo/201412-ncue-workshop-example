@@ -33,24 +33,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">偽 Blog</a>
+                <a class="navbar-brand" href="{{ route('home.index') }}">偽 Blog</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="{{ url('about') }}">關於本站</a>
+                        <a href="{{ route('about.index') }}">關於本站</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分類文章 <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             @foreach(range(1, 4) as $category)
-                            <li><a href="{{ url('categories/'.$category) }}">{{{ '分類'.$category }}}</a></li>
+                            <li><a href="{{ route('categories.show', $category) }}">{{{ '分類'.$category }}}</a></li>
                             @endforeach
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ url('random') }}">隨機文章</a>
+                        <a href="{{ route('random.index') }}">隨機文章</a>
                     </li>
                 </ul>
             </div>

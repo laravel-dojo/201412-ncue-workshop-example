@@ -26,7 +26,7 @@
     </div>
     
     <div class="form-group text-right">
-        <a href="{{ url('/') }}" class="btn btn-link"> &#171; 返回</a>
+        <a href="{{ route('posts.index') }}" class="btn btn-link"> &#171; 返回</a>
         {{ Form::submit('發表', ['class' => 'btn btn-success']) }}
     </div>
 

@@ -20,7 +20,7 @@
     </div>
     
     <div class="form-group text-right">
-        <a href="{{ url('categories') }}" class="btn btn-link"> &#171; 返回</a>
+        <a href="{{ route('categories.index') }}" class="btn btn-link"> &#171; 返回</a>
         {{ Form::submit('更新', ['class' => 'btn btn-success']) }}
     </div>
 

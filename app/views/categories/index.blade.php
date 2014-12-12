@@ -14,7 +14,7 @@
     </h1>
     
     <div class="text-right">
-        <a href="{{ url('categories/create') }}" class="btn btn-success btn-sm">新增</a>
+        <a href="{{ route('categories.create') }}" class="btn btn-success btn-sm">新增</a>
     </div>
     
     <div class="table-responsive">
@@ -32,7 +32,7 @@
                     <td>{{{ $category }}}</td>
                     <td>{{{ '分類'.$category }}}</td>
                     <td>
-                        <a href="{{ url('categories/'.$category.'/edit') }}" class="btn btn-primary btn-sm">編輯</a>
+                        <a href="{{ route('categories.edit', $category) }}" class="btn btn-primary btn-sm">編輯</a>
                         
                         {{ Form::open(['url' => '/categories/'.$category, 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
                         {{ Form::submit('刪除', ['class' => 'btn btn-danger btn-sm']) }}

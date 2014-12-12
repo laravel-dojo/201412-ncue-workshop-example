@@ -22,7 +22,7 @@
             <div class="col-lg-6">
                 <ul class="list-unstyled">
                     @foreach(range(1, 4) as $category)
-                    <li><a href="{{ url('categories/'.$category) }}">{{{ '分類'.$category }}}</a></li>
+                    <li><a href="{{ route('categories.show', $category) }}">{{{ '分類'.$category }}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -34,7 +34,7 @@
     <!-- Side Widget Well -->
     <div class="well">
         <h4>網站管理</h4>
-        <p><a href="{{ url('login') }}">登入</a></p>
+        <p><a href="{{ route('login.index') }}">登入</a></p>
     </div>
     @endif
 
