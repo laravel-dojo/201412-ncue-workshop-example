@@ -13,7 +13,7 @@
         <small>文章分類頁</small>
     </h1>
 
-    @if (true)
+    @if (Auth::check())
     <div class="text-right">
         <a class="btn btn-success" href="{{ route('posts.create') }}">新增文章</a>
     </div>
@@ -32,7 +32,7 @@
     
     <div class="text-right">
         <a class="btn btn-info" href="{{ route('posts.show', $post->id) }}">閱讀全文</a>
-        @if (true)
+        @if (Auth::check())
         <a class="btn btn-primary" href="{{ route('posts.edit', $post->id) }}">編輯</a>
         {{ Form::open(['url' => 'posts/'.$post->id, 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
         {{ Form::submit('刪除', ['class' => 'btn btn-danger btn-sm']) }}

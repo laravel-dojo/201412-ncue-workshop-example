@@ -25,18 +25,26 @@
                     <li><a href="{{ route('categories.show', $category->id) }}">{{{ $category->name }}}</a></li>
                     @endforeach
                 </ul>
+                
+                @if (Auth::check())
+                <div>
+                    <p><a href="{{ route('categories.index') }}">管理分類</a></p>
+                </div>
+                @endif
             </div>
         </div>
         <!-- /.row -->
     </div>
 
-    @if (true)
     <!-- Side Widget Well -->
     <div class="well">
         <h4>網站管理</h4>
-        <p><a href="{{ route('login.index') }}">登入</a></p>
+        @if (Auth::check())
+        <p><span class="label label-success">管理中</span> <a href="{{ route('auth.logout') }}">登出</a></p>
+        @else
+        <p><a href="{{ route('auth.login') }}">登入</a></p>
+        @endif
     </div>
-    @endif
 
 </div>
 

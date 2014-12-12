@@ -17,19 +17,24 @@
     <![endif]-->
 </head>
     <div class="container">
-      <form class="form-signin" role="form">
-        <h2 class="form-signin-heading">請登入</h2>
-        <label for="inputEmail" class="sr-only">帳號</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="請輸入您的帳號" required="" autofocus="">
-        <label for="inputPassword" class="sr-only">密碼</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="請輸入您的密碼" required="">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> 記住我
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
-      </form>
+        {{ Form::open(['route' => 'auth.process', 'method' => 'POST', 'class' => 'form-signin', 'role' => 'form']) }}
+            <h2 class="form-signin-heading">請登入</h2>
+            {{ Form::label('email', '帳號', ['class' => 'sr-only']) }}
+            {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => '請輸入您的帳號', 'required', 'autofocus']) }}
+
+            {{ Form::label('password', '密碼', ['class' => 'sr-only']) }}
+            {{ Form::password('password', ['class' => 'form-control', 'placeholder' => '請輸入您的密碼', 'required']) }}
+
+            <div class="checkbox">
+              <label>
+                  {{ Form::checkbox('remember-me', 1, false) }} 記住我
+              </label>
+            </div>
+            
+            @include('partials.notifications')
+            
+            {{ Form::submit('登入', ['class' => 'btn btn-lg btn-primary btn-block']) }}
+        {{ Form::close() }}
     </div><!-- /container -->
 </body>
 </html>

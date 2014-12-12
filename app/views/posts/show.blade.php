@@ -10,7 +10,7 @@
 
     <!-- Blog Post -->
     
-    @if (true)
+    @if (Auth::check())
     <div class="text-right">
         <a class="btn btn-success" href="{{ route('posts.create') }}">新增文章</a>
     </div>
@@ -30,7 +30,7 @@
     <!-- Post Content -->
     <p>{{{ $post->content }}}</p>
 
-    @if (true)
+    @if (Auth::check())
     <div class="text-right">
         <a class="btn btn-primary" href="{{ route('posts.edit', $post->id) }}">編輯</a>
         
