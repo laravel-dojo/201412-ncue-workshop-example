@@ -23,7 +23,10 @@
     <h2>
         <a href="{{ route('posts.show', $post->id) }}">{{{ $post->title }}}</a>
     </h2>
-    <p class="text-right"><span class="glyphicon glyphicon-time"></span> 發表於 {{{ $post->created_at->toDateTimeString() }}}</p>
+    <p class="text-right">
+        <span>{{{ $post->category->name }}}</span>
+        <span class="glyphicon glyphicon-time"></span> 發表於 {{{ $post->created_at->toDateTimeString() }}}
+    </p>
     <hr>
     <p>{{{ $post->content }}}</p>
     

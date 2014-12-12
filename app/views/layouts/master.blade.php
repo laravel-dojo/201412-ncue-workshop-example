@@ -44,8 +44,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分類文章 <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            @foreach(range(1, 4) as $category)
-                            <li><a href="{{ route('categories.show', $category) }}">{{{ '分類'.$category }}}</a></li>
+                            @foreach($categories as $category)
+                            <li><a href="{{ route('categories.show', $category->id) }}">{{{ $category->name }}}</a></li>
                             @endforeach
                         </ul>
                     </li>

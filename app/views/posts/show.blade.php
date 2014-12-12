@@ -19,8 +19,11 @@
     <!-- Title -->
     <h1>{{{ $post->title }}}</h1>
     
-    <!-- Date/Time -->
-    <p class="text-right"><span class="glyphicon glyphicon-time"></span> 發表於 {{{ $post->created_at->toDateTimeString() }}}</p>
+    <!-- Category/Date/Time -->
+    <p class="text-right">
+        <span>{{{ $post->category->name }}}</span>
+        <span class="glyphicon glyphicon-time"></span> 發表於 {{{ $post->created_at->toDateTimeString() }}}
+    </p>
 
     <hr>
 

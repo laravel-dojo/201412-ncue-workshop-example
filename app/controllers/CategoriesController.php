@@ -15,7 +15,7 @@ class CategoriesController extends \BaseController {
 	 */
 	public function index()
 	{
-        $categories = Category::all();
+        $categories = Category::paginate();
         
         $data = compact('categories');
         
@@ -127,6 +127,15 @@ class CategoriesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
+        $category = Category::where('id', '!=', $id)->orderBy('id', 'desc')->first();
+        $posts = Post::where('category_id', $id)->get();
+        
+        foreach($posts as $post)
+        {
+            $post->category_id = $category->id;
+            $post->save();
+        }
+        
 		Category::destroy($id);
         
         return Redirect::route('categories.index')->with('success', '成功刪除分類');
