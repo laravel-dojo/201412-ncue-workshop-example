@@ -2,6 +2,11 @@
 
 class CategoriesController extends \BaseController {
 
+    public function __construct()
+    {
+        $this->beforeFilter('csrf', ['on' => 'post']);
+    }
+    
 	/**
 	 * Display a listing of the resource.
 	 * GET /categories
