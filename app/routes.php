@@ -15,23 +15,22 @@ Route::pattern('id', '[0-9]+');
 
 Route::get('/', function()
 {
-    $data = ['name' => 'Simon'];
-	return View::make('home', $data);
+	return View::make('home');
 });
 
 Route::get('about', function()
 {
-	return 'About Page';
+	return View::make('home');
 });
 
 Route::get('categories', function()
 {
-	return 'Categories List';
+	return View::make('home');
 });
 
 Route::get('categories/{id}', function($id)
 {
-	return 'Show Category: '.$id;
+	return View::make('home');
 });
 
 Route::get('categories/create', function()
@@ -46,12 +45,12 @@ Route::get('categories/{id}/edit', function($id)
 
 Route::get('posts', function()
 {
-	return 'Posts List';
+	return View::make('home');
 });
 
 Route::get('posts/{id}', function($id)
 {
-	return 'Show Post: '.$id;
+	return View::make('post');
 });
 
 Route::get('posts/create', function()
@@ -66,10 +65,10 @@ Route::get('posts/{id}/edit', function($id)
 
 Route::get('random', function()
 {
-	return 'Random Post!';
+	return View::make('post');
 });
 
 Route::get('login', function()
 {
-	return 'Login Page';
+	return View::make('login');
 });
