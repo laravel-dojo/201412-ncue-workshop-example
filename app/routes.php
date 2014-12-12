@@ -15,22 +15,22 @@ Route::pattern('id', '[0-9]+');
 
 Route::get('/', function()
 {
-	return View::make('home');
+	return View::make('home.index');
 });
 
 Route::get('about', function()
 {
-	return View::make('home');
+	return View::make('about.index');
 });
 
 Route::get('categories', function()
 {
-	return View::make('home');
+	return View::make('categories.index');
 });
 
 Route::get('categories/{id}', function($id)
 {
-	return View::make('home');
+	return View::make('categories.show');
 });
 
 Route::get('categories/create', function()
@@ -45,12 +45,12 @@ Route::get('categories/{id}/edit', function($id)
 
 Route::get('posts', function()
 {
-	return View::make('home');
+	return Redirect::to('/');
 });
 
 Route::get('posts/{id}', function($id)
 {
-	return View::make('post');
+	return View::make('posts.show');
 });
 
 Route::get('posts/create', function()
@@ -65,10 +65,10 @@ Route::get('posts/{id}/edit', function($id)
 
 Route::get('random', function()
 {
-	return View::make('post');
+	return View::make('posts.show');
 });
 
 Route::get('login', function()
 {
-	return View::make('login');
+	return View::make('login.index');
 });
