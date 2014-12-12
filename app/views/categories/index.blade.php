@@ -27,14 +27,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach(range(1, 4) as $category)
                 <tr>
-                    <td>1</td>
-                    <td>Table cell</td>
+                    <td>{{{ $category }}}</td>
+                    <td>{{{ '分類'.$category }}}</td>
                     <td>
                         <a href="#" class="btn btn-primary btn-sm">編輯</a>
                         <a href="#" class="btn btn-danger btn-sm">刪除</a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

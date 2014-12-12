@@ -13,47 +13,30 @@
         <small>文章分類頁</small>
     </h1>
 
-    <!-- First Blog Post -->
+    @if (true)
+    <div class="text-right">
+        <a class="btn btn-success" href="#">新增文章</a>
+    </div>
+    @endif
+    
+    @foreach(range(1, 10) as $post)
     <h2>
-        <a href="#">Blog Post Title</a>
+        <a href="#">{{{ '文章標題'.$post }}}</a>
     </h2>
-    <p class="lead">
-        by <a href="index.php">Start Bootstrap</a>
-    </p>
-    <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
+    <p class="text-right"><span class="glyphicon glyphicon-time"></span> 發表於 August 28, 2013 at 10:00 PM</p>
     <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+    <p>{{{ '文章內容'.$post }}}</p>
+    
+    <div class="text-right">
+        <a class="btn btn-info" href="#">閱讀全文</a>
+        @if (true)
+        <a class="btn btn-primary" href="#">編輯</a>
+        <a class="btn btn-danger" href="#">刪除</a>
+        @endif
+    </div>
 
     <hr>
-
-    <!-- Second Blog Post -->
-    <h2>
-        <a href="#">Blog Post Title</a>
-    </h2>
-    <p class="lead">
-        by <a href="index.php">Start Bootstrap</a>
-    </p>
-    <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-    <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
-    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-    <hr>
-
-    <!-- Third Blog Post -->
-    <h2>
-        <a href="#">Blog Post Title</a>
-    </h2>
-    <p class="lead">
-        by <a href="index.php">Start Bootstrap</a>
-    </p>
-    <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-    <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
-    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-    <hr>
+    @endforeach
 
     <!-- Pager -->
     <ul class="pager">
