@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
         $categories = Category::all();
         
         $data = compact('posts', 'categories');

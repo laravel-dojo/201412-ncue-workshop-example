@@ -30,7 +30,7 @@ class CategoriesController extends \BaseController {
 	 */
 	public function create()
 	{
-        $categories = Category::all();
+        $categories = Category::paginate(5);
         
         $data = compact('categories');
         
@@ -68,7 +68,7 @@ class CategoriesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-        $posts = Post::where('category_id', $id)->orderBy('created_at', 'desc')->get();
+        $posts = Post::where('category_id', $id)->orderBy('created_at', 'desc')->paginate(5);
         $categories = Category::all();
         
         $data = compact('posts', 'categories');
