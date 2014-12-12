@@ -6,6 +6,10 @@ class Category extends \Eloquent {
         'name',
     ];
     
+    public static $rules = [
+        'name' => 'required',
+    ];
+    
     public function posts()
     {
         return $this->hasMany('Post');

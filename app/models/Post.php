@@ -8,6 +8,12 @@ class Post extends \Eloquent {
         'category_id',
     ];
     
+    public static $rules = [
+        'title' => 'required',
+        'content' => 'required',
+        'category_id' => 'required|exists:categories,id',
+    ];
+    
     public function category()
     {
         return $this->belongsTo('Category');

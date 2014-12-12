@@ -36,7 +36,16 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-        Post::create(Input::all());
+        $inputs = Input::all();
+        
+        $validation = Validator::make($inputs, Post::$rules);
+        
+        if ($validation->fails())
+        {
+            return Redirect::back()->withErrors($validation)->withInput();
+        }
+        
+        Post::create($inputs);
 
 		return Redirect::route('home.index')->with('success', '新增文章成功');
 	}
@@ -85,6 +94,16 @@ class PostsController extends \BaseController {
 	public function update($id)
 	{
 		$post = Post::find($id);
+        
+        $inputs = Input::all();
+        
+        $validation = Validator::make($inputs, Post::$rules);
+        
+        if ($validation->fails())
+        {
+            return Redirect::back()->withErrors($validation)->withInput();
+        }
+        
         $post->update(Input::all());
         
         return Redirect::route('home.index')->with('success', '成功更新文章');

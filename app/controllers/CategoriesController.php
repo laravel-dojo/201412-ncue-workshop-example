@@ -40,7 +40,16 @@ class CategoriesController extends \BaseController {
 	 */
 	public function store()
 	{
-		Category::create(Input::all());
+        $inputs = Input::all();
+        
+        $validation = Validator::make($inputs, Category::$rules);
+        
+        if ($validation->fails())
+        {
+            return Redirect::back()->withErrors($validation)->withInput();
+        }
+        
+		Category::create($inputs);
         
         return Redirect::route('categories.index')->with('success', '成功新增分類');
 	}
@@ -88,8 +97,18 @@ class CategoriesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$category = Category::find($id);
-        $category->update(Input::all());
+        $category = Category::find($id);
+        
+        $inputs = Input::all();
+        
+        $validation = Validator::make($inputs, Category::$rules);
+        
+        if ($validation->fails())
+        {
+            return Redirect::back()->withErrors($validation)->withInput();
+        }
+		
+        $category->update($inputs);
         
         return Redirect::route('categories.index')->with('success', '成功更新分類');
 	}

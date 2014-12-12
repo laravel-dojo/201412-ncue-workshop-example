@@ -11,11 +11,13 @@
     <!-- Blog Post -->
     <h1>建立新分類</h1>
     
+    @include('partials.notifications')
+    
     {{ Form::open(['route' => 'categories.store', 'method' => 'POST', 'class' => 'horizontal-form', 'role' => 'form']) }}
     
     <!-- Name -->
-    <div class="form-group">
-        {{ Form::label('name', '分類名稱： ') }}
+    <div class="form-group{{ $errors->first('name', ' has-error') }}">
+        {{ Form::label('name', '分類名稱：') }}
         {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => '請輸入文章標題', 'required']) }}
     </div>
     
