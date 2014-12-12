@@ -13,6 +13,8 @@
         <small>文章總覽</small>
     </h1>
 
+    @include('partials.notifications')
+    
     @if (true)
     <div class="text-right">
         <a class="btn btn-success" href="{{ route('posts.create') }}">新增文章</a>

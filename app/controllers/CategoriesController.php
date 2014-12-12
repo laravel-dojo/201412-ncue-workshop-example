@@ -40,7 +40,9 @@ class CategoriesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		Category::create(Input::all());
+        
+        return Redirect::route('categories.index')->with('success', '成功新增分類');
 	}
 
 	/**
@@ -69,9 +71,10 @@ class CategoriesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+        $editing_category = Category::find($id);
         $categories = Category::all();
         
-        $data = compact('categories');
+        $data = compact('editing_category', 'categories');
         
 		return View::make('categories.edit', $data);
 	}
@@ -85,7 +88,10 @@ class CategoriesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$category = Category::find($id);
+        $category->update(Input::all());
+        
+        return Redirect::route('categories.index')->with('success', '成功更新分類');
 	}
 
 	/**
@@ -97,7 +103,9 @@ class CategoriesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Category::destroy($id);
+        
+        return Redirect::route('categories.index')->with('success', '成功刪除分類');
 	}
 
 }

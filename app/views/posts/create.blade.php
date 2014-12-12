@@ -11,7 +11,7 @@
     <!-- Blog Post -->
     <h1>建立新文章</h1>
     
-    {{ Form::open(['url' => 'posts', 'method' => 'POST', 'class' => 'horizontal-form', 'role' => 'form']) }}
+    {{ Form::open(['route' => 'posts.store', 'method' => 'POST', 'class' => 'horizontal-form', 'role' => 'form']) }}
     
     <!-- Title -->
     <div class="form-group">
@@ -25,6 +25,13 @@
         {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => '請輸入文章內容', 'required']) }}
     </div>
     
+    <!-- Post Category -->
+    <div class="form-group">
+        {{ Form::label('category_id', '文章分類： ') }}
+        {{ Form::select('category_id', $categories->lists('name', 'id'), null, ['class' => 'form-control']) }}
+    </div>
+    
+    <!-- Button -->
     <div class="form-group text-right">
         <a href="{{ route('posts.index') }}" class="btn btn-link"> &#171; 返回</a>
         {{ Form::submit('發表', ['class' => 'btn btn-success']) }}

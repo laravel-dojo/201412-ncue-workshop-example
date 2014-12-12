@@ -36,7 +36,9 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        Post::create(Input::all());
+
+		return Redirect::route('home.index')->with('success', '新增文章成功');
 	}
 
 	/**
@@ -65,9 +67,10 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+        $post = Post::find($id);
         $categories = Category::all();
         
-        $data = compact('categories');
+        $data = compact('post', 'categories');
         
 		return View::make('posts.edit', $data);
 	}
@@ -81,7 +84,10 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$post = Post::find($id);
+        $post->update(Input::all());
+        
+        return Redirect::route('home.index')->with('success', '成功更新文章');
 	}
 
 	/**
@@ -93,7 +99,9 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Post::destroy($id);
+
+		return Redirect::route('home.index')->with('success', '成功刪除文章');
 	}
 
 }

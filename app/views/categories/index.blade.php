@@ -13,6 +13,8 @@
         <small>文章分類列表</small>
     </h1>
     
+    @include('partials.notifications')
+    
     <div class="text-right">
         <a href="{{ route('categories.create') }}" class="btn btn-success btn-sm">新增</a>
     </div>
