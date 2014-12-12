@@ -33,19 +33,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">偽 Blog</a>
+                <a class="navbar-brand" href="{{ url('/') }}">偽 Blog</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">關於本站</a>
+                        <a href="{{ url('about') }}">關於本站</a>
                     </li>
                     <li>
-                        <a href="#">分類文章</a>
+                        <a href="{{ url('categories') }}">分類文章</a>
                     </li>
                     <li>
-                        <a href="#">隨機文章</a>
+                        <a href="{{ url('random') }}">隨機文章</a>
                     </li>
                 </ul>
             </div>

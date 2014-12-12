@@ -14,7 +14,7 @@
     </h1>
     
     <div class="text-right">
-        <a href="#" class="btn btn-success btn-sm">新增</a>
+        <a href="{{ url('categories/create') }}" class="btn btn-success btn-sm">新增</a>
     </div>
     
     <div class="table-responsive">
@@ -32,8 +32,8 @@
                     <td>{{{ $category }}}</td>
                     <td>{{{ '分類'.$category }}}</td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-sm">編輯</a>
-                        <a href="#" class="btn btn-danger btn-sm">刪除</a>
+                        <a href="{{ url('categories/'.$category.'/edit') }}" class="btn btn-primary btn-sm">編輯</a>
+                        <a href="{{ url('/categories/'.$category) }}" class="btn btn-danger btn-sm">刪除</a>
                     </td>
                 </tr>
                 @endforeach

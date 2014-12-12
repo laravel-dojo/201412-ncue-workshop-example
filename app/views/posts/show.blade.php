@@ -12,7 +12,7 @@
     
     @if (true)
     <div class="text-right">
-        <a class="btn btn-success" href="#">新增文章</a>
+        <a class="btn btn-success" href="{{ url('posts/create') }}">新增文章</a>
     </div>
     @endif
     
@@ -29,8 +29,8 @@
 
     @if (true)
     <div class="text-right">
-        <a class="btn btn-primary" href="#">編輯</a>
-        <a class="btn btn-danger" href="#">刪除</a>
+        <a class="btn btn-primary" href="{{ url('posts/1/edit') }}">編輯</a>
+        <a class="btn btn-danger" href="{{ url('posts/1') }}">刪除</a>
     </div>
     @endif
     
