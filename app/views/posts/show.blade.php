@@ -30,7 +30,10 @@
     @if (true)
     <div class="text-right">
         <a class="btn btn-primary" href="{{ url('posts/1/edit') }}">編輯</a>
-        <a class="btn btn-danger" href="{{ url('posts/1') }}">刪除</a>
+        
+        {{ Form::open(['url' => 'posts/1', 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
+        {{ Form::submit('刪除', ['class' => 'btn btn-danger btn-sm']) }}
+        {{ Form::close() }}
     </div>
     @endif
     
@@ -41,14 +44,23 @@
     <!-- Comments Form -->
     <div class="well">
         <h4>回覆文章</h4>
-        <form role="form">
+        {{ Form::open(['url' => 'comments/create', 'method' => 'POST', 'class' => 'horizontal-form', 'role' => 'form']) }}
             <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
+                {{ Form::label('name', '您的名字：') }}
+                {{ Form::text('name', null, ['class' => 'form-control', 'required']) }}
+            </div>
+            <div class="form-group">
+                {{ Form::label('email', '您的 Email：') }}
+                {{ Form::email('email', null, ['class' => 'form-control', 'required']) }}
+            </div>
+            <div class="form-group">
+                {{ Form::label('content', '您的留言：') }}
+                {{ Form::textarea('content', null, ['rows' => 3, 'class' => 'form-control', 'required']) }}
             </div>
             <div class="text-right">
-                <button type="submit" class="btn btn-info">送出</button>
+                {{ Form::submit('送出', ['class' => 'btn btn-info']) }}
             </div>
-        </form>
+        {{ Form::close() }}
     </div>
 
     <hr>

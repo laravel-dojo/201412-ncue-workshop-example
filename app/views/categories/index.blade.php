@@ -33,7 +33,10 @@
                     <td>{{{ '分類'.$category }}}</td>
                     <td>
                         <a href="{{ url('categories/'.$category.'/edit') }}" class="btn btn-primary btn-sm">編輯</a>
-                        <a href="{{ url('/categories/'.$category) }}" class="btn btn-danger btn-sm">刪除</a>
+                        
+                        {{ Form::open(['url' => '/categories/'.$category, 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
+                        {{ Form::submit('刪除', ['class' => 'btn btn-danger btn-sm']) }}
+                        {{ Form::close() }}
                     </td>
                 </tr>
                 @endforeach

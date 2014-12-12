@@ -41,8 +41,13 @@
                     <li>
                         <a href="{{ url('about') }}">關於本站</a>
                     </li>
-                    <li>
-                        <a href="{{ url('categories') }}">分類文章</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分類文章 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @foreach(range(1, 4) as $category)
+                            <li><a href="{{ url('categories/'.$category) }}">{{{ '分類'.$category }}}</a></li>
+                            @endforeach
+                        </ul>
                     </li>
                     <li>
                         <a href="{{ url('random') }}">隨機文章</a>

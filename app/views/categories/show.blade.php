@@ -31,7 +31,9 @@
         <a class="btn btn-info" href="{{ url('posts/'.$post) }}">閱讀全文</a>
         @if (true)
         <a class="btn btn-primary" href="{{ url('/posts/'.$post.'/edit') }}">編輯</a>
-        <a class="btn btn-danger" href="{{ url('/posts/'.$post) }}">刪除</a>
+        {{ Form::open(['url' => 'posts/'.$post, 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
+        {{ Form::submit('刪除', ['class' => 'btn btn-danger btn-sm']) }}
+        {{ Form::close() }}
         @endif
     </div>
 

@@ -35,12 +35,12 @@ Route::get('categories/{id}', function($id)
 
 Route::get('categories/create', function()
 {
-	return 'Create a new Category';
+	return View::make('categories.create');
 });
 
 Route::get('categories/{id}/edit', function($id)
 {
-	return 'Edit Category: '.$id;
+	return View::make('categories.edit');
 });
 
 Route::get('posts', function()
@@ -55,12 +55,12 @@ Route::get('posts/{id}', function($id)
 
 Route::get('posts/create', function()
 {
-	return 'Create a new Post';
+	return View::make('posts.create');
 });
 
 Route::get('posts/{id}/edit', function($id)
 {
-	return 'Edit Post: '.$id;
+	return View::make('posts.edit');
 });
 
 Route::get('random', function()
