@@ -44,20 +44,24 @@
     <!-- Comments Form -->
     <div class="well">
         <h4>回覆文章</h4>
-        {{ Form::open(['url' => 'comments/create', 'method' => 'POST', 'class' => 'horizontal-form', 'role' => 'form']) }}
-            <div class="form-group">
+        
+        @include('partials.notifications')
+        
+        {{ Form::open(['route' => 'comments.store', 'method' => 'POST', 'class' => 'horizontal-form', 'role' => 'form']) }}
+            <div class="form-group{{ $errors->first('name', ' has-error')}}">
                 {{ Form::label('name', '您的名字：') }}
                 {{ Form::text('name', null, ['class' => 'form-control', 'required']) }}
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->first('email', ' has-error')}}">
                 {{ Form::label('email', '您的 Email：') }}
                 {{ Form::email('email', null, ['class' => 'form-control', 'required']) }}
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->first('content', ' has-error')}}">
                 {{ Form::label('content', '您的留言：') }}
                 {{ Form::textarea('content', null, ['rows' => 3, 'class' => 'form-control', 'required']) }}
             </div>
             <div class="text-right">
+                {{ Form::hidden('post_id', $post->id) }}
                 {{ Form::submit('送出', ['class' => 'btn btn-info']) }}
             </div>
         {{ Form::close() }}
@@ -68,13 +72,13 @@
     <!-- Posted Comments -->
 
     <!-- Comments -->
-    @foreach(range(1, 5) as $comment)
+    @foreach($post->comments as $comment)
     <div class="media">
         <div class="media-body">
-            <h4 class="media-heading">{{{ '回覆人'.$comment }}}
-                <small>August 25, 2014 at 9:30 PM</small>
+            <h4 class="media-heading">{{{ $comment->name }}}
+                <small>{{{ $comment->email }}}</small>
             </h4>
-            {{{ '回覆內容'.$comment }}}
+            {{{ $comment->content }}}
         </div>
     </div>
     @endforeach

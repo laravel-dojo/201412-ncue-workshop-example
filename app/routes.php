@@ -33,3 +33,5 @@ Route::get('posts/{id}'     , ['as' => 'posts.show'   , 'uses' => 'PostsControll
 Route::get('posts/{id}/edit', ['as' => 'posts.edit'   , 'uses' => 'PostsController@edit']);
 Route::patch('posts/{id}'   , ['as' => 'posts.update' , 'uses' => 'PostsController@update']);
 Route::delete('posts/{id}'  , ['as' => 'posts.destroy', 'uses' => 'PostsController@destroy']);
+
+Route::post('comments', ['as' => 'comments.store'  , 'uses' => 'CommentsController@store']);
