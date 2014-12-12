@@ -10,7 +10,11 @@ class AboutController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('about.index');
+        $categories = Category::all();
+        
+        $data = compact('categories');
+        
+		return View::make('about.index', $data);
 	}
 
 }

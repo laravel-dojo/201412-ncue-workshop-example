@@ -27,14 +27,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(range(1, 4) as $category)
+                @foreach($categories as $category)
                 <tr>
-                    <td>{{{ $category }}}</td>
-                    <td>{{{ '分類'.$category }}}</td>
+                    <td>{{{ $category->id }}}</td>
+                    <td>{{{ $category->name }}}</td>
                     <td>
-                        <a href="{{ route('categories.edit', $category) }}" class="btn btn-primary btn-sm">編輯</a>
+                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary btn-sm">編輯</a>
                         
-                        {{ Form::open(['url' => '/categories/'.$category, 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
+                        {{ Form::open(['url' => '/categories/'.$category->id, 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
                         {{ Form::submit('刪除', ['class' => 'btn btn-danger btn-sm']) }}
                         {{ Form::close() }}
                     </td>

@@ -21,7 +21,11 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('posts.create');
+        $categories = Category::all();
+        
+        $data = compact('categories');
+        
+		return View::make('posts.create', $data);
 	}
 
 	/**
@@ -44,7 +48,12 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('posts.show');
+        $post = Post::find($id);
+        $categories = Category::all();
+        
+        $data = compact('post', 'categories');
+        
+		return View::make('posts.show', $data);
 	}
 
 	/**
@@ -56,7 +65,11 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('posts.edit');
+        $categories = Category::all();
+        
+        $data = compact('categories');
+        
+		return View::make('posts.edit', $data);
 	}
 
 	/**

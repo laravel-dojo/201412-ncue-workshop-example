@@ -17,21 +17,21 @@
     @endif
     
     <!-- Title -->
-    <h1>{{{ '文章標題' }}}</h1>
+    <h1>{{{ $post->title }}}</h1>
     
     <!-- Date/Time -->
-    <p class="text-right"><span class="glyphicon glyphicon-time"></span> 發表於 August 24, 2013 at 9:00 PM</p>
+    <p class="text-right"><span class="glyphicon glyphicon-time"></span> 發表於 {{{ $post->created_at->toDateTimeString() }}}</p>
 
     <hr>
 
     <!-- Post Content -->
-    <p>{{{ '文章內容' }}}</p>
+    <p>{{{ $post->content }}}</p>
 
     @if (true)
     <div class="text-right">
-        <a class="btn btn-primary" href="{{ route('posts.edit', 1) }}">編輯</a>
+        <a class="btn btn-primary" href="{{ route('posts.edit', $post->id) }}">編輯</a>
         
-        {{ Form::open(['url' => 'posts/1', 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
+        {{ Form::open(['url' => 'posts/'.$post->id, 'method' => 'DELETE', 'style' => 'display: inline;', 'role' => 'form']) }}
         {{ Form::submit('刪除', ['class' => 'btn btn-danger btn-sm']) }}
         {{ Form::close() }}
     </div>

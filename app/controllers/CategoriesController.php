@@ -10,7 +10,11 @@ class CategoriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('categories.index');
+        $categories = Category::all();
+        
+        $data = compact('categories');
+        
+		return View::make('categories.index', $data);
 	}
 
 	/**
@@ -21,7 +25,11 @@ class CategoriesController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('categories.create');
+        $categories = Category::all();
+        
+        $data = compact('categories');
+        
+		return View::make('categories.create', $data);
 	}
 
 	/**
@@ -44,7 +52,12 @@ class CategoriesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('categories.show');
+        $posts = Post::where('category_id', $id)->orderBy('created_at', 'desc')->get();
+        $categories = Category::all();
+        
+        $data = compact('posts', 'categories');
+        
+		return View::make('categories.show', $data);
 	}
 
 	/**
@@ -56,7 +69,11 @@ class CategoriesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('categories.edit');
+        $categories = Category::all();
+        
+        $data = compact('categories');
+        
+		return View::make('categories.edit', $data);
 	}
 
 	/**

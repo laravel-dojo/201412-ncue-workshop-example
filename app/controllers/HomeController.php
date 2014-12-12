@@ -17,7 +17,12 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		return View::make('home.index');
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        $categories = Category::all();
+        
+        $data = compact('posts', 'categories');
+        
+		return View::make('home.index', $data);
 	}
 
 }

@@ -10,7 +10,12 @@ class RandomController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('posts.show');
+        $post = Post::all()->random();
+        $categories = Category::all();
+        
+        $data = compact('post', 'categories');
+        
+		return View::make('posts.show', $data);
 	}
 
 }
