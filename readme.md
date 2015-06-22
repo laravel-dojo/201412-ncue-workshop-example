@@ -10,13 +10,13 @@ Laravel Dojo 於 2014/12/06-07, 13-14 受邀於 國立彰化師範大學資訊�
 
 ### 如何使用範例程式碼
 
-1. 下載 或 `git clone git@github.com:laravel-dojo/laravel4-first-class-example.git` 
-2. 打開 Terminal ，切換至 ` laravel4-first-class-example` 資料夾
+1. 下載 或 `git clone git@github.com:laravel-dojo/201412-ncue-workshop-example.git` 
+2. 打開 Terminal ，切換至 `201412-ncue-workshop-example` 資料夾
 3. 執行 `composer install`
-4. 設定您的網站伺服器的文件根目錄 (Document Root) 指向 `laravel4-first-class-example/public` 並啟動您的網站伺服器 (請記下您的 http port，如 8000)
+4. 設定您的網站伺服器的文件根目錄 (Document Root) 指向 `201412-ncue-workshop-example/public` 並啟動您的網站伺服器 (請記下您的 http port，如 8000)
 5. 設定您的 MySQL 資料庫，建立一個新的 blog_local 資料表，啟動您的 MySQL 伺服器 (請記下您的 MySQL port，如 33060)
-6. 打開`bootstrap/start.php` 修改 `local` 陣列裡的 `hostname`，修改完成後，執行 `php artisan env` 確認自己的運行環境是 `local`
-7. 打開`app/config/local/database.php` 修改 mysql 連線相關設定
+6. 打開 `bootstrap/start.php` 修改 `local` 陣列裡的 `hostname`，修改完成後，執行 `php artisan env` 確認自己的運行環境是 `local`
+7. 打開 `app/config/local/database.php` 修改 mysql 連線相關設定
 8. 在 Terminal 執行 `php artisan migrate` 確認資料庫連線正確並建立 `migrations` 資料表
 9. 在 Terminal 執行 `php artisan db:seed` 將測試資料倒進資料庫
 10. 瀏覽 `http://localhost:8000`
